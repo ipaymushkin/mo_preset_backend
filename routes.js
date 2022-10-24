@@ -22,5 +22,15 @@ module.exports = {
             }
 
         })
+
+        app.delete('/remove-all', async function (req, res) {
+            try {
+                await Answer.deleteMany({});
+                res.json({ok: true});
+            } catch (e) {
+                res.json({ok: false});
+            }
+
+        })
     }
 }
